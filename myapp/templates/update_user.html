@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update User</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Update User</h1>
+            <a href="{% url 'list_users' %}" class="button">Back to User List</a>
+        </div>
+    </header>
+    <div class="container content">
+        <h2>Update User Information</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="button">Update User</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adoption Applications List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Adoption Applications List</h1>
+            <a href="{% url 'create_adoption_application' %}" class="button">Create New Application</a>
+        </div>
+    </header>
+    <div class="container content">
+        <h2>Adoption Applications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Interest in Adopting</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in adoption_applications %}
+                <tr>
+                    <td>{{ application.id }}</td>
+                    <td>{{ application.name }}</td>
+                    <td>{{ application.email }}</td>
+                    <td>{{ application.interest_in_adopting }}</td>
+                    <td>
+                        <a href="{% url 'update_adoption_application' application.id %}" class="button">Edit</a>
+                        <form action="{% url 'delete_adoption_application' application.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="button delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No adoption applications found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

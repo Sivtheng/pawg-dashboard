@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Adoption Application</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Update Adoption Application</h1>
+            <a href="{% url 'list_adoption_applications' %}" class="button">Back to Applications List</a>
+        </div>
+    </header>
+    <div class="container content">
+        <h2>Update Application Information</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="button">Update Application</button>
+        </form>
+    </div>
+</body>
+</html>

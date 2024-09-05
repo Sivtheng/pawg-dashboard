@@ -1,0 +1,17 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to the Dashboard</h1>
+    <p><a href="{% url 'list_users' %}">Go to Users</a></p>
+    <p><a href="{% url 'list_contacts' %}">Go to Contacts</a></p>
+    <p><a href="{% url 'list_appointments' %}">Go to Appointments</a></p>
+    <p><a href="{% url 'list_adoption_applications' %}">Go to Adoption Applications</a></p>
+    <p><a href="{% url 'login' %}">Login</a></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Appointment</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Delete Appointment</h1>
+            <a href="{% url 'list_appointments' %}" class="button">Back to Appointments List</a>
+        </div>
+    </header>
+    <div class="container content">
+        <h2>Are you sure you want to delete this appointment?</h2>
+        <p><strong>ID:</strong> {{ appointment.id }}</p>
+        <p><strong>Name:</strong> {{ appointment.name }}</p>
+        <p><strong>Email:</strong> {{ appointment.email }}</p>
+        <p><strong>Appointment Date:</strong> {{ appointment.appointment_date }}</p>
+        <p><strong>Appointment Time:</strong> {{ appointment.appointment_time }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="button delete">Delete Appointment</button>
+            <a href="{% url 'list_appointments' %}" class="button">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
