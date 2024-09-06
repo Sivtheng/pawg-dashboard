@@ -5,7 +5,7 @@
 - Python 3.x
 - pip (Python package installer)
 - Django
-- Requests library for making HTTP requests
+- Requests library
 - API server from the Pawg Backend
 
 ## Install Dependencies
@@ -19,5 +19,5 @@
 
 ## Run the development server
 
-- python manage.py runserver
+- python3 manage.py runserver
 - Access http://127.0.0.1:8000/
