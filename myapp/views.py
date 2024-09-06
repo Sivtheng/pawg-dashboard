@@ -19,6 +19,8 @@ def login(request):
             if response.status_code == 200:
                 data = response.json()
                 request.session['token'] = data['token']  # Store JWT token in session
+                # Optionally store the username or other user details
+                request.session['username'] = form.cleaned_data['username']
                 return redirect('home')  # Redirect to home page
             else:
                 return HttpResponse('Error logging in', status=response.status_code)
@@ -43,7 +45,8 @@ def login_required(view_func):
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    username = request.session.get('username', 'User')
+    return render(request, 'home.html', {'username': username})
 
 @login_required
 def get_auth_headers(request):
