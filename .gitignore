@@ -1,10 +1,13 @@
-# Django-related
-*.pyc
-__pycache__/
+# Ignore SQLite database file
 db.sqlite3
-*.sqlite3
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore environment-specific files
 .env
 
-# Node and Tailwind-related
-node_modules/
-static/css/output.css
+# Ignore other unnecessary files
+*.log
