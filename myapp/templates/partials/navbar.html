@@ -1,21 +1,35 @@
-<!-- navbar.html -->
-<header class="bg-dark-blue text-white p-4">
-    <div class="container mx-auto flex items-center justify-between">
-        <!-- Logo -->
-        <div class="text-xl font-bold">
-            <a href="{% url 'home' %}" class="hover:text-orange">Logo</a>
+<header style="background-color: #229799; color: #F5F5F5;" class="p-3">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <span class="text-xl font-bold">Pawg Dashboard</span>
+            </a>
+            <!-- Menu -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_users' %}" style="color: #F5F5F5;">List Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_contacts' %}" style="color: #F5F5F5;">List Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_appointments' %}" style="color: #F5F5F5;">List Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'list_adoption_applications' %}" style="color: #F5F5F5;">List Adoption Applications</a>
+                    </li>
+                </ul>
+                <!-- Logout Button -->
+                <form method="post" action="{% url 'logout' %}" class="d-flex">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-light">Logout</button>
+                </form>
+            </div>
         </div>
-        <!-- Menu -->
-        <nav class="space-x-4">
-            <a href="{% url 'list_users' %}" class="hover:text-orange">List Users</a>
-            <a href="{% url 'list_contacts' %}" class="hover:text-orange">List Contacts</a>
-            <a href="{% url 'list_appointments' %}" class="hover:text-orange">List Appointments</a>
-            <a href="{% url 'list_adoption_applications' %}" class="hover:text-orange">List Adoption Applications</a>
-        </nav>
-        <!-- Logout Button -->
-        <form method="post" action="{% url 'logout' %}" class="flex items-center">
-            {% csrf_token %}
-            <button type="submit" class="bg-dark-red text-white px-4 py-2 rounded hover:bg-orange">Logout</button>
-        </form>
-    </div>
+    </nav>
 </header>
