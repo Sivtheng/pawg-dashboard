@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-light-pink text-dark-blue">
+    {% include 'partials/navbar.html' %}
+    
+    <main class="p-4">
+        {% block content %}
+        <!-- Default content goes here -->
+        {% endblock %}
+    </main>
+    
+    {% include 'partials/footer.html' %}
+</body>
+</html>
