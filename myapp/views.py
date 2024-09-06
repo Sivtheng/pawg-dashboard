@@ -15,8 +15,9 @@ def list_users(request):
     if response.status_code == 200:
         users = response.json()
     else:
-        users = []
+        users = [] 
     return render(request, 'list_users.html', {'users': users})
+
 
 def create_user(request):
     if request.method == 'POST':
@@ -39,12 +40,16 @@ def update_user(request, user_id):
             if response.status_code == 200:
                 return redirect('list_users')
             else:
-                return HttpResponse('Error updating user', status=response.status_code)
+                return HttpResponse(f'Error updating user: {response.text}', status=response.status_code)
     else:
         response = requests.get(f'{API_BASE_URL}/users/{user_id}')
-        user = response.json()
-        form = UserForm(initial=user)
+        if response.status_code == 200:
+            user = response.json()
+            form = UserForm(initial=user)
+        else:
+            form = UserForm()  # Handle the case where the user is not found
     return render(request, 'update_user.html', {'form': form, 'user_id': user_id})
+
 
 def delete_user(request, user_id):
     if request.method == 'POST':
@@ -204,10 +209,11 @@ def login(request):
         if form.is_valid():
             response = requests.post(f'{API_BASE_URL}/login', data=form.cleaned_data)
             if response.status_code == 200:
-                # Handle successful login
-                return redirect('list_users')  # Redirect to a relevant page
+                # Handle the JWT token received
+                # Save token to session or cookies if needed
+                return redirect('some_relevant_page')  # Adjust redirect as needed
             else:
-                return HttpResponse('Error logging in', status=response.status_code)
+                return HttpResponse(f'Error logging in: {response.text}', status=response.status_code)
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
