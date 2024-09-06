@@ -3,18 +3,40 @@
 {% block title %}Create Appointment{% endblock %}
 
 {% block content %}
-<header>
-    <div class="container">
-        <h1>Create Appointment</h1>
-        <a href="{% url 'list_appointments' %}" class="button">Back to Appointments List</a>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Create a New Appointment</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
+                    <input type="text" name="{{ form.name.name }}" id="{{ form.name.id_for_label }}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                    <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.phone_number.id_for_label }}" class="form-label">Phone Number</label>
+                    <input type="text" name="{{ form.phone_number.name }}" id="{{ form.phone_number.id_for_label }}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.appointment_date.id_for_label }}" class="form-label">Appointment Date</label>
+                    <input type="date" name="{{ form.appointment_date.name }}" id="{{ form.appointment_date.id_for_label }}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.appointment_time.id_for_label }}" class="form-label">Appointment Time</label>
+                    <input type="time" name="{{ form.appointment_time.name }}" id="{{ form.appointment_time.id_for_label }}" class="form-control">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Create Appointment</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{% url 'list_appointments' %}" class="btn btn-light">Back to Appointments List</a>
+            </div>
+        </div>
     </div>
-</header>
-<div class="container content">
-    <h2>Create a New Appointment</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="button">Create Appointment</button>
-    </form>
 </div>
 {% endblock %}

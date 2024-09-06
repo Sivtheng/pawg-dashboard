@@ -3,18 +3,28 @@
 {% block title %}Create User{% endblock %}
 
 {% block content %}
-<header>
-    <div class="container">
-        <h1>Create User</h1>
-        <a href="{% url 'list_users' %}" class="button">Back to User List</a>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4 text-center">Create a New User</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
+                    <input type="text" name="{{ form.name.name }}" id="{{ form.name.id_for_label }}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
+                    <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}" class="form-control">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Create User</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{% url 'list_users' %}" class="btn btn-light">Back to User List</a>
+            </div>
+        </div>
     </div>
-</header>
-<div class="container content">
-    <h2>Create a New User</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="button">Create User</button>
-    </form>
 </div>
 {% endblock %}
