@@ -3,18 +3,22 @@
 {% block title %}Update Contact{% endblock %}
 
 {% block content %}
-<header>
-    <div class="container">
-        <h1>Update Contact</h1>
-        <a href="{% url 'update_contacts' %}" class="button">Back to Contacts List</a>
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Update Contact</h1>
+        <a href="{% url 'list_contacts' %}" class="btn btn-light">Back to Contacts List</a>
     </div>
-</header>
-<div class="container content">
-    <h2>Update Contact Information</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="button">Update Contact</button>
-    </form>
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="mb-4">Update Contact Information</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-flex justify-content-end mt-3">
+                    <button type="submit" class="btn btn-primary">Update Contact</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
