@@ -16,6 +16,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Message</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -25,6 +26,7 @@
                         <td>{{ contact.id }}</td>
                         <td>{{ contact.name }}</td>
                         <td>{{ contact.email }}</td>
+                        <td>{{ contact.message }}</td>
                         <td>
                             <a href="{% url 'update_contact' contact.id %}" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{% url 'delete_contact' contact.id %}" method="post" style="display:inline;">
@@ -35,7 +37,7 @@
                     </tr>
                     {% empty %}
                     <tr>
-                        <td colspan="4" class="text-center">No contacts found.</td>
+                        <td colspan="5" class="text-center">No contacts found.</td>
                     </tr>
                     {% endfor %}
                 </tbody>

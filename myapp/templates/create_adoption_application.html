@@ -26,20 +26,36 @@
                     <textarea name="{{ form.address.name }}" id="{{ form.address.id_for_label }}" class="form-control"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="{{ form.interest_in_adopting.id_for_label }}" class="form-label">Interest in Adopting</label>
-                    <input type="text" name="{{ form.interest_in_adopting.name }}" id="{{ form.interest_in_adopting.id_for_label }}" class="form-control">
+                    <label class="form-label">Interest in Adopting</label>
+                    {% for radio in form.interest_in_adopting %}
+                        <div class="form-check">
+                            {{ radio.tag }} {{ radio.choice_label }}
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="mb-3">
-                    <label for="{{ form.type_of_animal.id_for_label }}" class="form-label">Type of Animal</label>
-                    <input type="text" name="{{ form.type_of_animal.name }}" id="{{ form.type_of_animal.id_for_label }}" class="form-control">
+                    <label class="form-label">Type of Animal</label>
+                    {% for radio in form.type_of_animal %}
+                        <div class="form-check">
+                            {{ radio.tag }} {{ radio.choice_label }}
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="mb-3">
-                    <label for="{{ form.special_needs_animal.id_for_label }}" class="form-label">Special Needs Animal</label>
-                    <input type="text" name="{{ form.special_needs_animal.name }}" id="{{ form.special_needs_animal.id_for_label }}" class="form-control">
+                    <label class="form-label">Special Needs Animal</label>
+                    {% for radio in form.special_needs_animal %}
+                        <div class="form-check">
+                            {{ radio.tag }} {{ radio.choice_label }}
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="mb-3">
-                    <label for="{{ form.own_pet_before.id_for_label }}" class="form-label">Own Pet Before</label>
-                    <input type="text" name="{{ form.own_pet_before.name }}" id="{{ form.own_pet_before.id_for_label }}" class="form-control">
+                    <label class="form-label">Have You Owned Pets Before?</label>
+                    {% for radio in form.own_pet_before %}
+                        <div class="form-check">
+                            {{ radio.tag }} {{ radio.choice_label }}
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="mb-3">
                     <label for="{{ form.working_time.id_for_label }}" class="form-label">Working Time</label>
