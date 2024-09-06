@@ -22,6 +22,42 @@
         .content {
             flex: 1;
         }
+        :root {
+            --background-color: #F5F5F5; /* Background Color */
+            --accent-color: #48CFCB; /* Accent Color */
+            --primary-color: #229799; /* Primary Color */
+            --text-color: #424242; /* Text Color */
+        }
+
+        body {
+            background-color: var(--background-color);
+        }
+        .navbar, .footer {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        .navbar a, .footer a {
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+        .alert-danger {
+            background-color: #f8d7da; /* Adjust if needed */
+            color: #721c24;
+        }
+        .alert-success {
+            background-color: #d4edda; /* Adjust if needed */
+            color: #155724;
+        }
     </style>
 </head>
 <body>

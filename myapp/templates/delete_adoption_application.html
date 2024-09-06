@@ -1,28 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Adoption Application</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Delete Adoption Application</h1>
-            <a href="{% url 'delete_adoption_applications' %}" class="button">Back to Applications List</a>
-        </div>
-    </header>
-    <div class="container content">
-        <h2>Are you sure you want to delete this adoption application?</h2>
-        <p><strong>ID:</strong> {{ application.id }}</p>
-        <p><strong>Name:</strong> {{ application.name }}</p>
-        <p><strong>Email:</strong> {{ application.email }}</p>
-        <p><strong>Interest in Adopting:</strong> {{ application.interest_in_adopting }}</p>
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit" class="button delete">Delete Application</button>
-            <a href="{% url 'list_adoption_applications' %}" class="button">Cancel</a>
-        </form>
+{% extends 'base.html' %}
+
+{% block title %}Delete Adoption Application{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container">
+        <h1>Delete Adoption Application</h1>
+        <a href="{% url 'delete_adoption_applications' %}" class="button">Back to Applications List</a>
     </div>
-</body>
-</html>
+</header>
+<div class="container content">
+    <h2>Are you sure you want to delete this adoption application?</h2>
+    <p><strong>ID:</strong> {{ application.id }}</p>
+    <p><strong>Name:</strong> {{ application.name }}</p>
+    <p><strong>Email:</strong> {{ application.email }}</p>
+    <p><strong>Interest in Adopting:</strong> {{ application.interest_in_adopting }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="button delete">Delete Application</button>
+        <a href="{% url 'list_adoption_applications' %}" class="button">Cancel</a>
+    </form>
+</div>
+{% endblock %}

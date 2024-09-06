@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Update Appointment</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Update Appointment</h1>
-            <a href="{% url 'update_appointments' %}" class="button">Back to Appointments List</a>
-        </div>
-    </header>
-    <div class="container content">
-        <h2>Update Appointment Information</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="button">Update Appointment</button>
-        </form>
+{% extends 'base.html' %}
+
+{% block title %}Update Appointment{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container">
+        <h1>Update Appointment</h1>
+        <a href="{% url 'update_appointments' %}" class="button">Back to Appointments List</a>
     </div>
-</body>
-</html>
+</header>
+<div class="container content">
+    <h2>Update Appointment Information</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Update Appointment</button>
+    </form>
+</div>
+{% endblock %}

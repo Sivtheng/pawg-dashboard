@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Appointment</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Create Appointment</h1>
-            <a href="{% url 'list_appointments' %}" class="button">Back to Appointments List</a>
-        </div>
-    </header>
-    <div class="container content">
-        <h2>Create a New Appointment</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="button">Create Appointment</button>
-        </form>
+{% extends 'base.html' %}
+
+{% block title %}Create Appointment{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container">
+        <h1>Create Appointment</h1>
+        <a href="{% url 'list_appointments' %}" class="button">Back to Appointments List</a>
     </div>
-</body>
-</html>
+</header>
+<div class="container content">
+    <h2>Create a New Appointment</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">Create Appointment</button>
+    </form>
+</div>
+{% endblock %}

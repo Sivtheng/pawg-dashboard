@@ -1,27 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Contact</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Delete Contact</h1>
-            <a href="{% url 'delete_contacts' %}" class="button">Back to Contacts List</a>
-        </div>
-    </header>
-    <div class="container content">
-        <h2>Are you sure you want to delete this contact?</h2>
-        <p><strong>ID:</strong> {{ contact.id }}</p>
-        <p><strong>Name:</strong> {{ contact.name }}</p>
-        <p><strong>Email:</strong> {{ contact.email }}</p>
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit" class="button delete">Delete Contact</button>
-            <a href="{% url 'list_contacts' %}" class="button">Cancel</a>
-        </form>
+{% extends 'base.html' %}
+
+{% block title %}Delete Contact{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container">
+        <h1>Delete Contact</h1>
+        <a href="{% url 'delete_contacts' %}" class="button">Back to Contacts List</a>
     </div>
-</body>
-</html>
+</header>
+<div class="container content">
+    <h2>Are you sure you want to delete this contact?</h2>
+    <p><strong>ID:</strong> {{ contact.id }}</p>
+    <p><strong>Name:</strong> {{ contact.name }}</p>
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="button delete">Delete Contact</button>
+        <a href="{% url 'list_contacts' %}" class="button">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+

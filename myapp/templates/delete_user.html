@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete User</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Delete User</h1>
-            <a href="{% url 'delete_users' %}" class="button">Back to User List</a>
-        </div>
-    </header>
-    <div class="container content">
-        <h2>Are you sure you want to delete this user?</h2>
-        <p><strong>ID:</strong> {{ user.id }}</p>
-        <p><strong>Name:</strong> {{ user.name }}</p>
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit" class="button delete">Delete User</button>
-            <a href="{% url 'list_users' %}" class="button">Cancel</a>
-        </form>
+{% extends 'base.html' %}
+
+{% block title %}Delete User{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container">
+        <h1>Delete User</h1>
+        <a href="{% url 'delete_users' %}" class="button">Back to User List</a>
     </div>
-</body>
-</html>
+</header>
+<div class="container content">
+    <h2>Are you sure you want to delete this user?</h2>
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Name:</strong> {{ user.name }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="button delete">Delete User</button>
+        <a href="{% url 'list_users' %}" class="button">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+
