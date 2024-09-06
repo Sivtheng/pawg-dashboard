@@ -1,0 +1,10 @@
+# Django-related
+*.pyc
+__pycache__/
+db.sqlite3
+*.sqlite3
+.env
+
+# Node and Tailwind-related
+node_modules/
+static/css/output.css

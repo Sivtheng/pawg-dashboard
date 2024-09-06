@@ -3,14 +3,18 @@
 ## Prerequisites
 
 - Python 3.x
-- pip (Python package installer)
 - Django
-- Requests library
-- API server from the Pawg Backend
+- Node.js & npm (for Tailwind CSS)
+- Tailwind CSS
 
 ## Install Dependencies
 
 - pip install -r requirements.txt
+
+## Install Tailwind
+
+- npm install
+- npm run build:css
 
 ## Configure Settings
 
