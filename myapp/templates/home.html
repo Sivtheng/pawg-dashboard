@@ -1,17 +1,22 @@
-<!-- templates/home.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Home Page</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
 </head>
 <body>
-    <h1>Welcome to the Dashboard</h1>
-    <p><a href="{% url 'list_users' %}">Go to Users</a></p>
-    <p><a href="{% url 'list_contacts' %}">Go to Contacts</a></p>
-    <p><a href="{% url 'list_appointments' %}">Go to Appointments</a></p>
-    <p><a href="{% url 'list_adoption_applications' %}">Go to Adoption Applications</a></p>
-    <p><a href="{% url 'login' %}">Login</a></p>
+    <h1>Home</h1>
+    <nav>
+        <a href="{% url 'list_users' %}">List Users</a>
+        <a href="{% url 'list_contacts' %}">List Contacts</a>
+        <a href="{% url 'list_appointments' %}">List Appointments</a>
+        <a href="{% url 'list_adoption_applications' %}">List Adoption Applications</a>
+        <!-- Logout Form -->
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
 </body>
 </html>

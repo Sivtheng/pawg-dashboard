@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    {% load static %}
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
 </head>
 <body>
     <h1>Login</h1>
-    <form method="post">
+    <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ form.username.value }}" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
         <button type="submit">Login</button>
     </form>
+    {% if form.non_field_errors %}
+        <div>
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if request.session.token %}
+        <p>Login successful! Token: {{ request.session.token }}</p>
+    {% endif %}
 </body>
 </html>
