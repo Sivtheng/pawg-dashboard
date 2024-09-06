@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Home</h1>
-    <nav>
-        <a href="{% url 'list_users' %}">List Users</a>
-        <a href="{% url 'list_contacts' %}">List Contacts</a>
-        <a href="{% url 'list_appointments' %}">List Appointments</a>
-        <a href="{% url 'list_adoption_applications' %}">List Adoption Applications</a>
-        <!-- Logout Form -->
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
-    </nav>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold">Home</h1>
+{% endblock %}
