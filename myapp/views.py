@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from datetime import datetime, date, time
 import json
+
+from dashboard import settings
 from .forms import UserForm, ContactForm, AppointmentForm, AdoptionApplicationForm, LoginForm
 
 API_BASE_URL = 'http://localhost:8080/api'
