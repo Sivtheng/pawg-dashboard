@@ -269,7 +269,6 @@ def delete_appointment(request, appointment_id):
 def list_adoption_applications(request):
     headers = get_auth_headers(request)
     response = requests.get(f'{API_BASE_URL}/adoption_applications', headers=headers)
-    print(response.json())  # Debugging line
     if response.status_code == 200:
         adoption_applications = response.json()
         return render(request, 'list_adoption_applications.html', {'adoption_applications': adoption_applications})
